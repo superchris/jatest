@@ -20,7 +20,8 @@ defmodule Jatest.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Jatest do
-  #   pipe_through :api
-  # end
+  scope "/api", Jatest do
+    pipe_through :api
+    resources "/things", ThingController, except: [:new, :edit]
+  end
 end
